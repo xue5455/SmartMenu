@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SmartMenu">
+        <attr name="inner_padding" format="dimension" />
+        <attr name="outer_padding" format="dimension" />
+        <attr name="menu_height" format="dimension" />
+        <attr name="smart_btn_size" format="dimension" />
+        <attr name="vertical_padding" format="dimension" />
+    </declare-styleable>
+</resources>

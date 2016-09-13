@@ -3,7 +3,6 @@
     <declare-styleable name="SmartMenu">
         <attr name="inner_padding" format="dimension" />
         <attr name="outer_padding" format="dimension" />
-        <attr name="menu_height" format="dimension" />
         <attr name="smart_btn_size" format="dimension" />
         <attr name="vertical_padding" format="dimension" />
         <attr name="dot_radius" format="dimension" />

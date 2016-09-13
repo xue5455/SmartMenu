@@ -20,15 +20,41 @@
     </declare-styleable>
 ```
 >inner_padding —— 图标之间的距离
+
+<br>
+
 >outer_padding —— 左右边界距离图标的距离
+
+<br>
+
 >smart_btn_size —— 中间的按钮的尺寸
+
+<br>
+
 >vertical_padding —— 菜单的上边界和中间按钮的上边界的距离
+
+<br>
+
 >dot_radius —— 中间按钮的小圆点的半径
+
+<br>
+
 >dot_distance —— 左边的小圆点和右边的小圆点的距离(包括左右圆点的直径)
+
+<br>
+
 >dot_color —— 圆点的颜色
+
+<br>
+
 >bg_color —— 控件的背景颜色
+
+<br>
+
 >shadow_color —— 阴影的颜色
- 
+
+
+ ###MenuAdapter
 ```
 public class MenuAdapter extends BaseAdapter implements View.OnClickListener{
 

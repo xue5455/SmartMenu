@@ -55,7 +55,7 @@
 
 
 
- ###MenuAdapter
+MenuAdapter
 
 ```
 public class MenuAdapter extends BaseAdapter implements View.OnClickListener{

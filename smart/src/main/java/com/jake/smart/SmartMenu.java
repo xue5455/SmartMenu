@@ -215,6 +215,7 @@ public class SmartMenu extends ViewGroup implements View.OnClickListener,
                     List<View> views = mViews.get(mCurrentTargetPosition);
                     for (View view : views) {
                         setViewScale(view, (Float) valueAnimator.getAnimatedValue());
+                        view.setAlpha((Float) valueAnimator.getAnimatedValue());
                     }
                 }
             });
@@ -275,7 +276,7 @@ public class SmartMenu extends ViewGroup implements View.OnClickListener,
     @Override
     protected void dispatchDraw(Canvas canvas) {
         if (mRect != null) {
-            canvas.drawRoundRect(mRect, mSwitchBtnSize / 2, mSwitchBtnSize / 2, mSwitchBtn.getBackgroundPaint());
+            canvas.drawRoundRect(mRect, mSwitchBtnSize / 3, mSwitchBtnSize / 3, mSwitchBtn.getBackgroundPaint());
         }
         super.dispatchDraw(canvas);
     }

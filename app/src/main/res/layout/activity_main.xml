@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="#cccccc"
+    android:background="#ffffff"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
    >
@@ -14,5 +13,10 @@
         android:layout_height="wrap_content"
         app:vertical_padding="13dp"
         app:outer_padding="30dp"
-        app:inner_padding="10dp"/>
+        app:inner_padding="10dp"
+        app:dot_radius="2dp"
+        app:dot_distance="25dp"
+        app:bg_color="#b4282d"
+        app:shadow_color="#40000000"
+        app:dot_color="@android:color/white"/>
 </RelativeLayout>

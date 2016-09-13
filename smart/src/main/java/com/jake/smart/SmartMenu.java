@@ -5,6 +5,7 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.RectF;
 import android.os.Looper;
 import android.util.AttributeSet;
@@ -63,9 +64,24 @@ public class SmartMenu extends ViewGroup implements View.OnClickListener,
 
     private int mCurrentTargetPosition = 0;
 
+    private float mDotRadius;
+
+    private int mDotDistance;
+
+    private int mBackgroundColor;
+
+    private int mShadowColor;
+
+    private int mDotColor;
+
     private void init() {
         mSwitchBtn = new SmartButton(getContext());
         mSwitchBtn.setOnClickListener(this);
+        mSwitchBtn.setRadius(mDotRadius);
+        mSwitchBtn.setLength(mDotDistance);
+        mSwitchBtn.setDotColor(mDotColor);
+        mSwitchBtn.setShadowColor(mShadowColor);
+        mSwitchBtn.setBackgroundColor(mBackgroundColor);
         initScaleAnimator();
         initSwitchAnimator();
     }
@@ -77,6 +93,11 @@ public class SmartMenu extends ViewGroup implements View.OnClickListener,
         mInnerPadding = ta.getDimensionPixelSize(R.styleable.SmartMenu_inner_padding, dip2px(context, DEFAULT_PADDING));
         mVerticalPadding = ta.getDimensionPixelSize(R.styleable.SmartMenu_vertical_padding, dip2px(context, DEFAULT_PADDING));
         mSwitchBtnSize = ta.getDimensionPixelSize(R.styleable.SmartMenu_smart_btn_size, dip2px(context, DEFAULT_BTN_SIZE));
+        mDotRadius = ta.getDimensionPixelSize(R.styleable.SmartMenu_dot_radius, dip2px(context, 1));
+        mDotDistance = ta.getDimensionPixelSize(R.styleable.SmartMenu_dot_distance, dip2px(context, 25));
+        mDotColor = ta.getColor(R.styleable.SmartMenu_dot_color,Color.WHITE);
+        mShadowColor = ta.getColor(R.styleable.SmartMenu_shadow_color,Color.parseColor("#40000000"));
+        mBackgroundColor = ta.getColor(R.styleable.SmartMenu_bg_color,Color.parseColor("#b4282d"));
         mMenuHeight = mSwitchBtnSize - 2 * mVerticalPadding;
         ta.recycle();
         init();

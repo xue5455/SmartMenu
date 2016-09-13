@@ -27,8 +27,6 @@ class SmartButton extends View implements ValueAnimator.AnimatorUpdateListener {
 
     private float mMinRadius = 6;
 
-    private float mMaxRadius = mMinRadius;
-
 
     private float mCenterX;
 
@@ -42,6 +40,12 @@ class SmartButton extends View implements ValueAnimator.AnimatorUpdateListener {
 
     private RectF mRightRectF = new RectF();
 
+    private int mBackgroundColor = Color.parseColor("#b4282d");
+
+    private int mShadowColor = Color.parseColor("#40000000");
+
+    private int mDotColor = Color.WHITE;
+
     public SmartButton(Context context) {
         super(context);
         init();
@@ -54,13 +58,15 @@ class SmartButton extends View implements ValueAnimator.AnimatorUpdateListener {
 
     private void init() {
         setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mPaint.setColor(Color.WHITE);
-        mPaint.setStyle(Paint.Style.FILL);
-        mBackgroundPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mBackgroundPaint.setColor(Color.parseColor("#b4282d"));
-        mBackgroundPaint.setStyle(Paint.Style.FILL);
-        mBackgroundPaint.setShadowLayer(15,0,0,Color.parseColor("#40000000"));
+        mPaint = new Paint();
+        mPaint.setAntiAlias(true);
+        mPaint.setDither(true);
+        mPaint.setColor(mDotColor);
+        mBackgroundPaint = new Paint();
+        mBackgroundPaint.setAntiAlias(true);
+        mBackgroundPaint.setDither(true);
+        mBackgroundPaint.setColor(mBackgroundColor);
+        mBackgroundPaint.setShadowLayer(15, 0, 0, mShadowColor);
     }
 
     @Override
@@ -83,10 +89,8 @@ class SmartButton extends View implements ValueAnimator.AnimatorUpdateListener {
 
     private void drawContent(Canvas canvas) {
         int length = (int) ((mLength - 2 * mMinRadius) * mPercent);
-        float deltaRadius = mMaxRadius - mMinRadius;
-        float radius = mMinRadius + mPercent * deltaRadius;
-        drawLeft(canvas, radius, length);
-        drawRight(canvas, radius, length);
+        drawLeft(canvas, mMinRadius, length);
+        drawRight(canvas, mMinRadius, length);
     }
 
     private void drawLeft(Canvas canvas, float radius, int length) {
@@ -119,7 +123,6 @@ class SmartButton extends View implements ValueAnimator.AnimatorUpdateListener {
         setMeasuredDimension(size, size);
         mCenterX = getMeasuredWidth() / 2.f;
         mCenterY = getMeasuredHeight() / 2.f;
-        mLength = 80;
     }
 
     @Override
@@ -128,8 +131,34 @@ class SmartButton extends View implements ValueAnimator.AnimatorUpdateListener {
         invalidate();
     }
 
+    void setRadius(float radius) {
+        mMinRadius = radius;
+    }
 
-    Paint getBackgroundPaint(){
+    void setLength(int length) {
+        mLength = length;
+    }
+
+    Paint getBackgroundPaint() {
         return mBackgroundPaint;
+    }
+
+    void setDotColor(int color) {
+        this.mDotColor = color;
+        mPaint.setColor(mDotColor);
+        invalidate();
+    }
+
+    @Override
+    public void setBackgroundColor(int color) {
+        mBackgroundColor = color;
+        mBackgroundPaint.setColor(color);
+        invalidate();
+    }
+
+    public void setShadowColor(int color) {
+        mShadowColor = color;
+        mBackgroundPaint.setShadowLayer(15, 0, 0, color);
+        invalidate();
     }
 }

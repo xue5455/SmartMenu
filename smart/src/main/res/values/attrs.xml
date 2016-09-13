@@ -6,5 +6,10 @@
         <attr name="menu_height" format="dimension" />
         <attr name="smart_btn_size" format="dimension" />
         <attr name="vertical_padding" format="dimension" />
+        <attr name="dot_radius" format="dimension" />
+        <attr name="dot_distance" format="dimension" />
+        <attr name="dot_color" format="color|reference" />
+        <attr name="bg_color" format="color|reference" />
+        <attr name="shadow_color" format="color|reference" />
     </declare-styleable>
 </resources>
